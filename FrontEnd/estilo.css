@@ -1,0 +1,31 @@
+.container{
+    width: 400px;
+    padding: 30px;
+    border:1px solid #ccc;
+}
+.container h1{
+    width: 100%;
+    font-size: 1.5em;
+}
+.col-3{
+    width: 100%;
+    margin: 15px 0;
+}
+.col-3 label{
+    padding-left: 10px;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+}
+input[type=submit]{
+    display: block;
+    background-color: #ccc;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}

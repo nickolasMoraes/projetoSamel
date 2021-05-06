@@ -1,0 +1,27 @@
+{
+  "name": "rest-api-samel",
+  "version": "1.0.0",
+  "description": "Api de cadastro de paciente",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "cadastro"
+  ],
+  "author": "Nickolas Moraes Costa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Formulário de cadastro</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- <form action="" method="get"> -->
+    <main>
+        <center>
+            <h1> Cadastro de paciente</h1>
+        </center>
+        <fieldset class="row">
+            <div class="col-3">
+                <label for="cpf">Seu CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF*" required>
+            </div>
+            <div class="col-3">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome*">
+            </div>
+
+            <div class="col-3">
+                <label for="telefone">Seu Telefone:</label>
+                <input type="text" id="telefone" name="telefone" placeholder="Digite seu Telefone*">
+            </div>
+
+            <div class="col-3">
+                <label for="email">Seu E-Mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu E-Mail*">
+            </div>
+        </fieldset>
+        <fieldset class="row">
+            <div class="col-3">
+                <button onclick="save()">Cadastrar</button>
+            </div>
+            <div class="col-3">
+                <button onclick="save()">Alterar</button>
+            </div>
+            <div class="col-3">
+                <button onclick="save()">Excluir</button>
+            </div>
+            <div class="col-3">
+                <button onclick="save()">Listar</button>
+            </div>
+        </fieldset>
+    </main>
+    <!-- </form> -->
+    <script>
+        function save() {
+            const nome = document.getElementById('nome').value;
+            const cpf = document.getElementById('cpf').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+
+            var myInit = {
+                method: 'POST',
+                headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( {
+                            "cpf": cpf,
+                            "nome": nome,
+                            "email": email,
+                            "telefone": telefone,
+                        }
+                )
+            };
+
+            var myInit = {
+                method: 'PATCH',
+                headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( {
+                            "cpf": cpf,
+                            "nome": nome,
+                            "email": email,
+                            "telefone": telefone,
+                        }
+                )
+            };
+
+            var myInit = {
+                method: 'DELETE',
+                headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                   "cpf": cpf 
+                }
+                )
+            };
+
+            var myInit = {
+                method: 'GET',
+                headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                }
+            };
+
+            fetch('http://localhost:3000/pacientes', myInit)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                });
+        }
+
+    </script>
+</body>
+
+</html>
